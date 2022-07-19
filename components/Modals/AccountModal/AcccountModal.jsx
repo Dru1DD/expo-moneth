@@ -1,11 +1,11 @@
 import React, { useCallback } from 'react'
 import { View, Text, Modal, TouchableOpacity, ScrollView } from 'react-native'
 import { observer } from 'mobx-react-lite'
-import { modalStyles as styles } from '../../styles'
+import { modalStyles as styles } from '../../../styles'
 import { AntDesign } from '@expo/vector-icons';
-import { useStore } from '../../hooks';
+import { useStore } from '../../../hooks';
 import shortid from 'shortid';
-import { Icon } from '../Icon/Icon';
+import { Icon } from '../../Icon/Icon';
 
 export const AccountModal = observer(({ isVisible, setIsVisible }) => {
     const { accounts } = useStore()

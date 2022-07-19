@@ -1,3 +1,8 @@
+import React from 'react'
+import { TouchableOpacity } from 'react-native'
+
+import { Icon } from '../components';
+
 import { createStackNavigator } from "@react-navigation/stack";
 
 import { HomeScreen } from "../screens/HomeScreen";
@@ -6,9 +11,7 @@ import { TransactionForm } from "../screens/TransactionForm";
 
 
 import { SettingsScreen } from '../screens/SettingsScreen'
-import { SettingsGeneral } from "../screens/Settings/SettingsGeneral";
-import { TermsOfUse } from "../screens/Settings/TermsOfUse";
-import { PrivacyPolicy } from "../screens/Settings/PrivacyPolicy";
+import { SettingsGeneral } from '../screens/Settings/SettingsGeneral';
 import { About } from "../screens/Settings/About";
 
 const Stack = createStackNavigator();
@@ -64,23 +67,7 @@ export const SettingsStack = () => {
         component={SettingsGeneral}
         options={{
           title: '',
-          headerBackTitle: 'Back'
-        }}
-      />
-      <Stack.Screen 
-        name="TermsOfUse"
-        component={TermsOfUse}
-        options={{
-          title: '',
-          headerBackTitle: 'Back'
-        }}
-      />
-      <Stack.Screen 
-        name="PrivacyPolicy"
-        component={PrivacyPolicy}
-        options={{
-          title: '',
-          headerBackTitle: 'Back'
+          headerBackTitle: 'Back',
         }}
       />
       <Stack.Screen 
@@ -88,7 +75,7 @@ export const SettingsStack = () => {
         component={About}
         options={{
           title: '',
-          headerBackTitle: 'Back'
+          headerBackTitle: 'Back',
         }}
       />
     </Stack.Navigator>

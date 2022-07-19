@@ -69,6 +69,8 @@ export class CatagoryStore {
 
     addCatagory (item) {
         this.catagoryList.push(item)
+<<<<<<< HEAD
+=======
     }
     
     changeActiveIncomeCatagory(itemNumber) {
@@ -77,5 +79,6 @@ export class CatagoryStore {
 
     addIncomeCatagory(item) {
         this.incomeCatagoryList.push(item)
+>>>>>>> analyticsScreen
     }
 }

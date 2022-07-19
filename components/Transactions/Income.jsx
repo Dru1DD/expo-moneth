@@ -8,8 +8,8 @@ import { useTextInput } from '../../hooks/useTextInput'
 import { AntDesign } from '@expo/vector-icons';
 import { Icon } from '../Icon/Icon';
 
-import { AccountModal } from '../AccountModal/AcccountModal';
-import { CatagoryModal } from '../CatagoryModal/CatagoryModal';
+import { AccountModal } from '../Modals/AccountModal/AcccountModal';
+import { CatagoryModal } from '../Modals/CatagoryModal/CatagoryModal';
 
 import { transactionStyles as styles } from '../../styles'
 import { dateFormater } from '../../helpers/dateHelper';
