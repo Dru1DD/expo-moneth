@@ -23,6 +23,7 @@ export const settingsGeneralStyles = StyleSheet.create({
         width: '100%'
     },
     itemContainer: {
+        padding: 15,
         width: '100%',
         alignSelf: 'center',
         borderRadius: 15,
@@ -37,6 +38,7 @@ export const settingsGeneralStyles = StyleSheet.create({
         elevation: 5,
     },
     item: {
+        width: '65%',
         padding: 5,
         justifyContent: 'space-between',
         alignItems: 'center',

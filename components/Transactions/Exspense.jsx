@@ -10,8 +10,8 @@ import { transactionStyles as styles } from '../../styles'
 
 import { dateFormater } from '../../helpers/dateHelper';
 
-import { AccountModal } from '../AccountModal/AcccountModal';
-import { CatagoryModal } from '../CatagoryModal/CatagoryModal';
+import { AccountModal } from '../Modals/AccountModal/AcccountModal';
+import { CatagoryModal } from '../Modals/CatagoryModal/CatagoryModal';
 
 import moment from 'moment'
 import { Icon } from '../Icon/Icon';
