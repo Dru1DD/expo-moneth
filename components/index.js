@@ -22,11 +22,8 @@ import { ExspenseAnalytics } from './Analytics/ExspenseAnalytics'
 export { 
     Item, 
     Icon,
-<<<<<<< HEAD
     Anchor,
-=======
     Chart,
->>>>>>> analyticsScreen
     Income,
     Exspense,
     Transfer,
