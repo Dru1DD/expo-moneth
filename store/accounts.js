@@ -29,6 +29,8 @@ export class AccountsStore {
         }
     ]
 
+    sum = 0
+
     constructor() {
         makeAutoObservable(this)
     }
@@ -43,6 +45,8 @@ export class AccountsStore {
                 item.count += ~~count
             }
         })
+
+        this.sum = this.accountsList.reduce((acc, curValue) => acc.count + curValue.count)
     }
 
     exspenseHandler(id, count) {
@@ -51,6 +55,7 @@ export class AccountsStore {
                 item.count -= ~~count
             }
         })
+        this.sum = this.accountsList.reduce((acc, curValue) => acc.count + curValue.count)
     }
 
     transferHandler(firstTitle, secondTitle, sum) {
@@ -73,5 +78,9 @@ export class AccountsStore {
 
     addAccount (item) {
         this.accountsList.push(item)
+    }
+
+    loadDefaultSum(){
+        this.sum = this.accountsList.reduce((acc, curValue) => acc.count + curValue.count)
     }
 }

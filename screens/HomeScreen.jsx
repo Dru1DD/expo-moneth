@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useStore } from '../hooks'
 import { useNavigation } from '@react-navigation/native'
 import { View, Text, ScrollView, Pressable } from 'react-native'
@@ -13,11 +13,22 @@ import { observer } from 'mobx-react-lite'
 
 export const HomeScreen = observer(() => {
     const navigation = useNavigation()
-    const { transactions } = useStore()
+    const { transactions, accounts } = useStore()
 
     const buttonClickHandler = () => {
         navigation.navigate('AddTransaction')
     }
+
+    useEffect(() => {
+        const loadDefaultList = async() => {
+            await  transactions.loadDefaultExspenseList()
+            await transactions.loadDefaultIncomeList()
+            await accounts.loadDefaultSum()
+            await transactions.loadDefaultBalanceList()
+        }
+
+        loadDefaultList()
+    }, [])
 
     return (
         <SafeAreaView style={styles.container}>

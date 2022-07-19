@@ -21,7 +21,7 @@ export const AccountModal = observer(({ isVisible, setIsVisible }) => {
             onRequestClose={onRequestClose}
         >
             <View style={styles.centeredView}>
-                <View style={styles.modalView}>
+                <View style={[styles.modalView, { maxHeight: 400 }]}>
                     <View style={styles.header}>
                         <TouchableOpacity style={styles.back} onPress={onRequestClose}>
                             <AntDesign name="left" size={18} color="black" />
@@ -30,7 +30,7 @@ export const AccountModal = observer(({ isVisible, setIsVisible }) => {
                             <Text>Счета</Text>
                         </View>
                     </View>
-                    <View style={styles.body}>
+                    <ScrollView style={styles.body}>
                         {accounts.accountsList.map((item, index) => (
                             <View key={shortid.generate()} style={styles.itemContainer}>
                                 <TouchableOpacity
@@ -53,7 +53,7 @@ export const AccountModal = observer(({ isVisible, setIsVisible }) => {
                                 {index + 1 === accounts.accountsList.length && <View style={styles.line} />}
                             </View>
                         ))}
-                    </View>
+                    </ScrollView>
                 </View>
             </View>
         </Modal>
