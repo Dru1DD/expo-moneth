@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { View } from 'react-native'
 import { Exspense, Income, Transfer } from '../components'
 import SegmentedControl from '@react-native-segmented-control/segmented-control';
-import { NavBarHeader } from '../components/NavBar/NavBarHeader'
 
 import { transactionFormStyles as styles } from '../styles'
 

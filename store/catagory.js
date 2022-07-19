@@ -45,6 +45,20 @@ export class CatagoryStore {
         }
     ]
 
+    activeIncomeCatagory = 0
+    incomeCatagoryList = [
+        {
+            iconName: 'attach-money',
+            title: 'Зарплата',
+            vectorIcons: 'MaterialIcons'
+        }, 
+        {
+            iconName: 'gift',
+            title: 'Подарок',
+            vectorIcons: 'AntDesign'
+        }
+    ]
+
     constructor () {
         makeAutoObservable(this)
     }
@@ -55,5 +69,16 @@ export class CatagoryStore {
 
     addCatagory (item) {
         this.catagoryList.push(item)
+<<<<<<< HEAD
+=======
+    }
+    
+    changeActiveIncomeCatagory(itemNumber) {
+        this.activeIncomeCatagory = itemNumber
+    }
+
+    addIncomeCatagory(item) {
+        this.incomeCatagoryList.push(item)
+>>>>>>> analyticsScreen
     }
 }

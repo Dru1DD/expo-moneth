@@ -26,7 +26,7 @@ export const Income = () => {
     const navigation = useNavigation()
 
 
-    const activeCatagory = catagories.catagoryList[catagories.activeCatagory]
+    const activeCatagory = catagories.incomeCatagoryList[catagories.activeIncomeCatagory]
     const activeAccount = accounts.accountsList[accounts.activeAccount]
 
     const clickHandler = async () => {
@@ -51,6 +51,7 @@ export const Income = () => {
                         currencyName: accounts.activeCurrencyName,
                         currencyAbbreviation: accounts.activeCurrencyAbbreviation,
                         addTime: formatedDate.childDate,
+                        budgetAfter: accounts.sum + sum.value,
                         note: note.value
                     }
                 ]
@@ -58,6 +59,7 @@ export const Income = () => {
 
             await accounts.incomeHandler(activeAccount.id, sum.value)
             await transactions.addTransaction(item)
+            await transactions.addIncomeItem(item.transactions[0])
 
             navigation.navigate('Home')
         } catch (e) {
@@ -152,6 +154,7 @@ export const Income = () => {
                 setIsVisible={setIsAccountOpen}
             />
             <CatagoryModal
+                isIncome={true}
                 isVisible={isCatagoryOpen}
                 setIsVisible={setIsCatagoryOpen}
             />

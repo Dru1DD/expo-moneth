@@ -53,17 +53,18 @@ export const Exspense = () => {
                         currencyName: accounts.activeCurrencyName,
                         currencyAbbreviation: accounts.activeCurrencyAbbreviation,
                         addTime: formatedDate.childDate,
+                        budgetAfter: accounts.sum - sum.value,
                         note: note.value
                     }
                 ]
             }
-
             await transactions.addTransaction(item)
             await accounts.exspenseHandler(activeAccount.id, sum.value)
+            await transactions.addExspenseItem(item.transactions[0])
 
             navigation.navigate('Home')
         } catch (e) {
-            console.log(e)
+            alert(e)
         }
     }
 

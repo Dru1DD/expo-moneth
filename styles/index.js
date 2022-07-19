@@ -1,7 +1,7 @@
 import { appStyle } from "./app.styles";
 import { navigationStyles } from "./navigation.styles";
 import { homeScreen } from "./homeScreen.styles";
-import { settingsStyle } from "./settings.style";
+import { settingsStyle } from "./settings.styles";
 import { transactionDetail } from "./transactionDetail.styles";
 import { transactionFormStyles } from "./transactionForm.styles";
 import { settingsGeneralStyles } from "./settingsGeneral.styles";
