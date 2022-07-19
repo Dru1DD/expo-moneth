@@ -1,11 +1,11 @@
 import React, { useState, useCallback } from "react";
 import { View, Text, Modal, TouchableOpacity, ScrollView } from "react-native";
 
-import { useStore } from "../../hooks";
+import { useStore } from "../../../hooks";
 
-import { modalStyles as styles } from "../../styles";
+import { modalStyles as styles } from "../../../styles";
 import shortid from "shortid";
-import { Icon } from "../Icon/Icon";
+import { Icon } from "../../Icon/Icon";
 import { observer } from 'mobx-react-lite';
 
 export const CatagoryModal = observer(({ isVisible, setIsVisible }) => {

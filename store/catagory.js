@@ -54,6 +54,6 @@ export class CatagoryStore {
     }
 
     addCatagory (item) {
-        this.catagoryList.push(list)
+        this.catagoryList.push(item)
     }
 }

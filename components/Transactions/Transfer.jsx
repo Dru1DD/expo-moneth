@@ -6,7 +6,7 @@ import { useTextInput } from '../../hooks/useTextInput'
 import { useStore } from '../../hooks';
 
 import { Icon } from '../Icon/Icon';
-import { AccountModal } from '../AccountModal/AcccountModal';
+import { AccountModal } from '../Modals/AccountModal/AcccountModal';
 
 import { dateFormater } from '../../helpers/dateHelper';
 import { transactionStyles as styles } from '../../styles'
