@@ -16,11 +16,12 @@ export const settingsGeneralStyles = StyleSheet.create({
     },
     footer: {
         flex: 4,
+        width: '100%',
         justifyContent: 'flex-start',
         alignItems: 'center'
     },
     blockContainer: {
-        width: '100%'
+        width: '80%'
     },
     itemContainer: {
         padding: 15,
@@ -38,7 +39,7 @@ export const settingsGeneralStyles = StyleSheet.create({
         elevation: 5,
     },
     item: {
-        width: '65%',
+        width: '100%',
         padding: 5,
         justifyContent: 'space-between',
         alignItems: 'center',

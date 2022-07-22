@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { View, Text, ScrollView, TextInput, TouchableOpacity } from 'react-native'
 
 import { useNavigation } from '@react-navigation/native';
-import { useTextInput } from '../../hooks/useTextInput'
-import { useStore } from '../../hooks';
+import { useStore, useTextInput } from '../../hooks';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { Icon } from '../Icon/Icon';
 import { AccountModal } from '../Modals/AccountModal/AcccountModal';
@@ -57,6 +57,12 @@ export const Transfer = observer(() => {
                     }
                 ]
             }
+
+            const asyncList = await AsyncStorage.getItem('@MyStore:Transactions')
+            const parseAsyncList = asyncList ? JSON.parse(asyncList):[]
+            parseAsyncList.push(item)
+            await AsyncStorage.setItem('@MyStore:Transactions', JSON.stringify(parseAsyncList))
+            
             await transactions.addTransaction(item)
             await accounts.transferHandler(firstAccount.title, secondAccount.title, sum.value)
 

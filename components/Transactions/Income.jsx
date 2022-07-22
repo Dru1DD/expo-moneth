@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { View, Text, ScrollView, TextInput, TouchableOpacity } from 'react-native'
 import moment from 'moment'
-import { useStore } from '../../hooks';
+import { useStore, useTextInput } from '../../hooks';
 import { useNavigation } from '@react-navigation/native';
-import { useTextInput } from '../../hooks/useTextInput'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { AntDesign } from '@expo/vector-icons';
 import { Icon } from '../Icon/Icon';
@@ -56,6 +56,11 @@ export const Income = () => {
                     }
                 ]
             }
+
+            const asyncList = await AsyncStorage.getItem('@MyStore:Transactions')
+            const parseAsyncList = asyncList ? JSON.parse(asyncList):[]
+            parseAsyncList.push(item)
+            await AsyncStorage.setItem('@MyStore:Transactions', JSON.stringify(parseAsyncList))
 
             await accounts.incomeHandler(activeAccount.id, sum.value)
             await transactions.addTransaction(item)
