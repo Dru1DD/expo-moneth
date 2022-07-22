@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from "react";
 import { View, Text, Modal, TouchableOpacity, TextInput, ScrollView } from "react-native";
-
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { useStore } from "../../../hooks";
 import { useTextInput } from "../../../hooks/useTextInput";
@@ -10,8 +10,9 @@ import { Icon } from "../../Icon/Icon";
 import { observer } from 'mobx-react-lite';
 import { iconsList } from "../../../helpers/iconsList";
 import shortid from "shortid";
+import { defaultAccounts, defaultCatagoryList, defaultIncomeCatagoryList } from "../../../constants/defaultValues";
 
-export const SettingsModal = observer(({ isVisible, setIsVisible, isAccount }) => {
+export const SettingsModal = observer(({ isVisible, setIsVisible, isAccount, isIncomeCatagory }) => {
 
     const [activeSlide, setActiveSlide] = useState(0);
     const [icon, setIcon] = useState({
@@ -42,7 +43,25 @@ export const SettingsModal = observer(({ isVisible, setIsVisible, isAccount }) =
                 vectorIcons: icon.vectorIcon
             }
 
+            const accountsAsyncList = await AsyncStorage.getItem('@MyStore:Accounts')
+            const accountsParsedList = accountsAsyncList != null ? JSON.parse(accountsAsyncList) : defaultAccounts
+            accountsParsedList.push(account)
+            
+            await AsyncStorage.setItem('@MyStore:Accounts', JSON.stringify(accountsParsedList))
             await accounts.addAccount(account)
+        } else if (isIncomeCatagory) {
+            const catagory = {
+                iconName: icon.iconName,
+                title: title.value,
+                vectorIcons: icon.vectorIcon
+            }
+
+            const incomeCatagoryAsync = await AsyncStorage.getItem('@MyStore:IncomeCatagories')
+            const incomeCatagoryParse = incomeCatagoryAsync != null ? JSON.parse(incomeCatagoryAsync) : defaultIncomeCatagoryList
+            incomeCatagoryParse.push(catagory)
+
+            await AsyncStorage.setItem('@MyStore:IncomeCatagories', JSON.stringify(incomeCatagoryParse))
+            await catagories.addIncomeCatagory(catagory)
         } else {
             const catagory = {
                 iconName: icon.iconName,
@@ -50,6 +69,11 @@ export const SettingsModal = observer(({ isVisible, setIsVisible, isAccount }) =
                 vectorIcons: icon.vectorIcon
             }
 
+            const exspenseCatagoryAsync = await AsyncStorage.getItem('@MyStore:ExspenseCatagories')
+            const exspenseCatagoryParse = exspenseCatagoryAsync != null ? JSON.parse(exspenseCatagoryAsync) : defaultCatagoryList
+            exspenseCatagoryParse.push(catagory)
+
+            await AsyncStorage.setItem('@MyStore:ExspenseCatagories', exspenseCatagoryParse)
             await catagories.addCatagory(catagory)
         }
 

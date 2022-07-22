@@ -18,6 +18,8 @@ export const SettingsGeneral = (props) => {
             return <AccountsList />
         case 'CatagoryPage':
             return <CatagoriesList />
+        case 'IncomeCatagoryPage':
+            return <IncomeCatagoriesList />
     }
 
 
@@ -196,6 +198,74 @@ const CatagoriesList = () => {
                 isVisible={isCatagoryOpen}
                 setIsVisible={setIsCatagoryOpen}
                 isAccount={false}
+            />
+        </View>
+    )
+}
+
+
+const IncomeCatagoriesList = () => {
+    const [isCatagoryOpen, setIsCatagoryOpen] = useState(false)
+    const { catagories } = useStore()
+
+    const buttonHandler = useCallback(() => setIsCatagoryOpen(!isCatagoryOpen), [isCatagoryOpen])
+
+    return (
+        <View style={styles.container}>
+            <View style={styles.header}>
+                <Text style={styles.headerText}>Категории</Text>
+            </View>
+            <View style={styles.footer}>
+                <ScrollView style={styles.blockContainer}>
+                    <View style={styles.itemContainer}>
+                        {
+                            catagories.incomeCatagoryList.map((catagory, index) => (
+                                <TouchableOpacity key={index}>
+                                    <View style={styles.item}>
+                                        <View style={{
+                                            flexDirection: 'row',
+                                            justifyContent: 'space-between',
+                                            alignItems: 'center',
+                                            marginLeft: 10,
+                                            marginRight: 10,
+                                            paddingLeft: 10,
+                                            paddingRight: 10
+                                        }}>
+                                            <Icon 
+                                                iconName={catagory.iconName} 
+                                                vectorIcon={catagory.vectorIcons} 
+                                                size={18} 
+                                                color={'black'} 
+                                            />
+                                            <Text style={{ marginLeft: 10 }}>{catagory.title}</Text>
+                                        </View>
+                                    </View>
+                                    {index + 1 !== catagories.catagoryList.length && <View style={styles.line} />}
+                                </TouchableOpacity>
+                            ))
+                        }
+                    </View>
+
+                    <TouchableOpacity
+                        style={{ 
+                            flexDirection: 'row',
+                            marginTop: 10, 
+                            justifyContent: 'center', 
+                            alignItems: 'center'
+                        }}
+                        onPress={buttonHandler}
+                    >
+                        <Icon iconName={"pluscircleo"} size={24} color={"black"} vectorIcon={"AntDesign"} />
+                        <Text style={{ marginLeft: 10 }}>Добавить категорию</Text>
+                    </TouchableOpacity>
+                </ScrollView>
+            </View>
+
+            <SettingsModal
+                isVisible={isCatagoryOpen}
+                setIsVisible={setIsCatagoryOpen}
+                isAccount={false}
+                isIncomeCatagory
             />
         </View>
     )

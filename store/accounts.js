@@ -6,29 +6,7 @@ export class AccountsStore {
     activeCurrencyAbbreviation = 'USD'
     activeCurrencyName = 'US Dollar'
 
-    accountsList = [
-        {
-            id: 'xbplXrBfP',
-            iconName: 'creditcard',
-            title: 'Дебетовая карта',
-            count: 100,
-            currencySymbol: this.activeCurrencySymbol,
-            currencyAbbreviation: this.activeCurrencyAbbreviation,
-            currencyName: this.activeCurrencyName,
-            vectorIcons: 'AntDesign'
-        },
-        {
-            id: 'RqElA2Fu20',
-            iconName: 'cash',
-            title: 'Наличные',
-            count: 100,
-            currencySymbol: this.activeCurrencySymbol,
-            currencySymbol: this.activeCurrencyAbbreviation,
-            currencyName: this.activeCurrencyName,
-            vectorIcons: 'Ionicons'
-        }
-    ]
-
+    accountsList = []
     sum = 0
 
     constructor() {
@@ -82,5 +60,9 @@ export class AccountsStore {
 
     loadDefaultSum(){
         this.sum = this.accountsList.reduce((acc, curValue) => acc.count + curValue.count)
+    }
+
+    setAccountsData(list) {
+        this.accountsList = list
     }
 }

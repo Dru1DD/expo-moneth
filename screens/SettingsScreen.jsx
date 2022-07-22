@@ -31,10 +31,17 @@ export const SettingsScreen = () => {
                             })}
                         />
                         <SettingsItem 
-                            title="Категория" 
-                            isLine={false}
+                            title="Категория(Рассходы)" 
+                            isLine={true}
                             onPress={() => navigation.navigate('SettingsGeneral', {
                                 pageName: 'CatagoryPage'
+                            })}
+                        />
+                        <SettingsItem 
+                            title="Категория(Доходы)" 
+                            isLine={false}
+                            onPress={() => navigation.navigate('SettingsGeneral', {
+                                pageName: 'IncomeCatagoryPage'
                             })}
                         />
                     </View>
