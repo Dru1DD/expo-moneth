@@ -33,10 +33,6 @@ export const Navigation = () => {
             await accounts.setAccountsData(accountsList)
             await accounts.updateCurrency(defaultCurrency)
 
-            i18n.locale = language.activeLanguage
-            // i18n.fallbacks = language.activeLanguage
-            // i18n.currentLocale = language.activeLanguage /
-
             if(exspenseCatagories && incomeCatagories) {
               await catagories.setDefaultCatagories(exspenseCatagories, incomeCatagories)
             }

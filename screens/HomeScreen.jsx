@@ -41,7 +41,8 @@ export const HomeScreen = observer(() => {
                       backgroundColor: pressed
                         ? 'rgb(241, 242, 242)'
                         : null,
-                        width: '90%'
+                        width: '90%',
+                        marginTop: 25
                     }
                   ]}
             >
