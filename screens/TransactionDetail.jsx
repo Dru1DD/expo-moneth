@@ -42,7 +42,7 @@ export const TransactionDetail = (props) => {
                 </View>
                 <View style={styles.line} />
                 <View style={styles.noteContainer}>
-                    <Text style={styles.itemText}>{$t('Notes')}</Text>
+                    <Text style={styles.itemText}>{$t('Note')}</Text>
                     <Text style={styles.itemText}>{elem.note}</Text>
                 </View>
             </View>

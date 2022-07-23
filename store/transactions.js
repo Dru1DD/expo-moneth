@@ -1,12 +1,7 @@
 import { makeAutoObservable } from "mobx";
 
 export class TransactionStore {
-  transactionList = [
-    {
-      date: "Wednesday, 18 June 2022",
-      transactions: []
-    },
-  ];
+  transactionList = [];
 
   balanceList = [0, 0, 0, 0, 0, 0, 0];
 
@@ -123,22 +118,23 @@ export class TransactionStore {
   }
 
   updateBalanceList(balance) {
-    const localBudgetList = this.balanceList;
+    let localBudgetList = this.balanceList;
+    localBudgetList = localBudgetList.map(str => Number(str))
 
     if (localBudgetList.length === 0) {
-      this.balanceList = [balance, 0, 0, 0, 0, 0, 0];
+      this.balanceList = [~~balance, 0, 0, 0, 0, 0, 0];
     } else if (localBudgetList.length === 1) {
-      this.balanceList = [...localBudgetList, balance, 0, 0, 0, 0, 0];
+      this.balanceList = [...localBudgetList, ~~balance, 0, 0, 0, 0, 0];
     } else if (localBudgetList.length === 2) {
-      this.balanceList = [...localBudgetList, balance, 0, 0, 0, 0];
+      this.balanceList = [...localBudgetList, ~~balance, 0, 0, 0, 0];
     } else if (localBudgetList.length === 3) {
-      this.balanceList = [...localBudgetList, balance, 0, 0, 0];
+      this.balanceList = [...localBudgetList, ~~balance, 0, 0, 0];
     } else if (localBudgetList.length === 4) {
-      this.balanceList = [...localBudgetList, balance, 0, 0];
+      this.balanceList = [...localBudgetList, ~~balance, 0, 0];
     } else if (localBudgetList.length === 5) {
-      this.balanceList = [...localBudgetList, balance, 0];
+      this.balanceList = [...localBudgetList, ~~balance, 0];
     } else if (localBudgetList.length === 6) {
-      this.balanceList = [...localBudgetList, balance];
+      this.balanceList = [...localBudgetList, ~~balance];
     } else if (localBudgetList.length >= 7) {
       this.balanceList = localBudgetList;
     }
