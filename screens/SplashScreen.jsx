@@ -1,10 +1,12 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 
+import $t from '../locales/i18n'
+
 export const SplashScreen = () => {
     return (
         <View style={styles.container}>
-            <Text>SplashScreen</Text>
+            <Text>{$t('SplashScreenTitle')}</Text>
         </View>
     )
 }

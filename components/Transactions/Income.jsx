@@ -14,6 +14,8 @@ import { CatagoryModal } from '../Modals/CatagoryModal/CatagoryModal';
 import { transactionStyles as styles } from '../../styles'
 import { dateFormater } from '../../helpers/dateHelper';
 
+import $t from '../../locales/i18n';
+
 export const Income = () => {
 
     const [isAccountOpen, setIsAccountOpen] = useState(false)
@@ -76,7 +78,7 @@ export const Income = () => {
         <View style={styles.container}>
             <ScrollView style={{ width: '100%' }}>
                 <View style={styles.blockContainer}>
-                    <Text style={styles.blockHeader}>Сумма</Text>
+                    <Text style={styles.blockHeader}>{$t('Sum')}</Text>
                     <View style={styles.itemContainer}>
                         <View style={styles.borderInput}>
                             <View style={styles.inputIcon}>
@@ -93,7 +95,7 @@ export const Income = () => {
                     </View>
                 </View>
                 <View style={styles.blockContainer}>
-                    <Text style={styles.blockHeader}>Куда</Text>
+                    <Text style={styles.blockHeader}>{$t('From')}</Text>
                     <TouchableOpacity style={styles.itemContainer} onPress={() => setIsAccountOpen(!isAccountOpen)}>
                         <View style={styles.modalContainer}>
                             <View style={styles.modalIcon}>
@@ -110,7 +112,7 @@ export const Income = () => {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.blockContainer}>
-                    <Text style={styles.blockHeader}>Категория</Text>
+                    <Text style={styles.blockHeader}>{$t('Catagory')}</Text>
                     <TouchableOpacity style={styles.itemContainer} onPress={() => setIsCatagoryOpen(!isCatagoryOpen)}>
                         <View style={styles.modalContainer}>
                             <View style={styles.modalIcon}>
@@ -126,7 +128,7 @@ export const Income = () => {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.blockContainer}>
-                    <Text style={styles.blockHeader}>Заметка</Text>
+                    <Text style={styles.blockHeader}>{$t('Note')}</Text>
                     <View style={styles.itemContainer}>
                         <View style={styles.borderInput}>
                             <TextInput
@@ -147,7 +149,7 @@ export const Income = () => {
                             style={styles.button}
                             onPress={clickHandler}
                         >
-                            <Text style={styles.buttonText}>Подтвердить</Text>
+                            <Text style={styles.buttonText}>{$t('Confirm')}</Text>
                         </TouchableOpacity>
                     </View>
 

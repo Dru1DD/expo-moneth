@@ -11,6 +11,7 @@ import { observer } from 'mobx-react-lite';
 import { iconsList } from "../../../helpers/iconsList";
 import shortid from "shortid";
 import { defaultAccounts, defaultCatagoryList, defaultIncomeCatagoryList } from "../../../constants/defaultValues";
+import $t from "../../../locales/i18n";
 
 export const SettingsModal = observer(({ isVisible, setIsVisible, isAccount, isIncomeCatagory }) => {
 
@@ -22,8 +23,8 @@ export const SettingsModal = observer(({ isVisible, setIsVisible, isAccount, isI
     })
     const { accounts, catagories } = useStore();
 
-    const title = useTextInput('', 'Название...', 'default', false)
-    const sum = useTextInput('', 'Сумма...', 'number-pad', false)
+    const title = useTextInput('', $t('TitlePlaceHolder'), 'default', false)
+    const sum = useTextInput('', `${$t('Sum')}...`, 'number-pad', false)
 
     const onRequestClose = useCallback(
         () => setIsVisible(!isVisible),
@@ -86,7 +87,7 @@ export const SettingsModal = observer(({ isVisible, setIsVisible, isAccount, isI
             case 0:
                 return (
                     <View>
-                        <Text>Введите название {isAccount ? "счёта" : "категории"}:</Text>
+                        <Text>{$t('InputTitle')} {isAccount ? $t('lowercaseAccount') : $t('lowercaseCatagory')}:</Text>
                         <TextInput
                             style={styles.textInput}
                             {...title}
@@ -98,20 +99,20 @@ export const SettingsModal = observer(({ isVisible, setIsVisible, isAccount, isI
                             style={[styles.button, { alignSelf: 'center' }]}
                             onPress={() => {
                                 if (title.value === '') {
-                                    alert('Значение не может быть пустое')
+                                    alert($t('EmptyValue'))
                                 } else {
                                     setActiveSlide(1)
                                 }
                             }}
                         >
-                            <Text style={styles.buttonText}>Далее</Text>
+                            <Text style={styles.buttonText}>{$t('Next')}</Text>
                         </TouchableOpacity>
                     </View>
                 )
             case 1:
                 return (
                     <View>
-                        <Text>Выберите иконку</Text>
+                        <Text>{$t('SelectAnIcon')}</Text>
                         <ScrollView>
                             <View style={styles.iconContainer}>
                                 {
@@ -146,14 +147,14 @@ export const SettingsModal = observer(({ isVisible, setIsVisible, isAccount, isI
                             style={[styles.button, { alignSelf: 'center' }]}
                             onPress={() => isAccount ? setActiveSlide(2) : setActiveSlide(3)}
                         >
-                            <Text style={styles.buttonText}>Далее</Text>
+                            <Text style={styles.buttonText}>{$t('Next')}</Text>
                         </TouchableOpacity>
                     </View>
                 )
             case 2:
                 return (
                     <>
-                        <Text>Введите сумму на счету: </Text>
+                        <Text>{$t('InputAmmountOfAccount')}: </Text>
                         <TextInput
                             style={styles.textInput}
                             {...sum}
@@ -164,7 +165,7 @@ export const SettingsModal = observer(({ isVisible, setIsVisible, isAccount, isI
                             style={[styles.button, { alignSelf: 'center' }]}
                             onPress={() => setActiveSlide(3)}
                         >
-                            <Text style={styles.buttonText}>Далее</Text>
+                            <Text style={styles.buttonText}>{$t('Next')}</Text>
                         </TouchableOpacity>
                     </>
                 )
@@ -173,13 +174,13 @@ export const SettingsModal = observer(({ isVisible, setIsVisible, isAccount, isI
                     <>
                         <View>
                             <View style={{ flexDirection: 'row'}}>
-                                <Text>Выбрана иконка: </Text>
+                                <Text>{$t('SelectedIcon')}: </Text>
                                 <Icon iconName={icon.iconName} vectorIcon={icon.vectorIcon} size={20} color={"black"} />
                             </View>
 
-                            <Text>Название {isAccount ? 'счёта' : 'категории'}: {title.value}</Text>
+                            <Text>{$t('Title')} {isAccount ? $t('lowercaseAccount') : $t('lowercaseCatagory')}: {title.value}</Text>
                             {isAccount && (
-                                <Text>Сумма на счету: {sum.value}</Text>
+                                <Text>{$t('SumOnAccount')}: {sum.value}</Text>
                             )}
                         </View>
 
@@ -188,13 +189,13 @@ export const SettingsModal = observer(({ isVisible, setIsVisible, isAccount, isI
                                 style={styles.button}
                                 onPress={() => setActiveSlide(0)}
                             >
-                                <Text style={styles.buttonText}>Изменить</Text>
+                                <Text style={styles.buttonText}>{$t('Change')}</Text>
                             </TouchableOpacity>
                             <TouchableOpacity
                                 style={[styles.button, { width: 150 }]}
                                 onPress={confirmHandler}
                             >
-                                <Text style={styles.buttonText}>Подтвердить</Text>
+                                <Text style={styles.buttonText}>{$t('Confirm')}</Text>
                             </TouchableOpacity>
                         </View>
 
@@ -203,7 +204,7 @@ export const SettingsModal = observer(({ isVisible, setIsVisible, isAccount, isI
             default:
                 return (
                     <View>
-                        <Text>Ошибка</Text>
+                        <Text>{$t('Error')}</Text>
                     </View>
                 )
         }
@@ -223,7 +224,7 @@ export const SettingsModal = observer(({ isVisible, setIsVisible, isAccount, isI
                             <Icon iconName="left" vectorIcon={"AntDesign"} color="black" />
                         </TouchableOpacity>
                         <View style={styles.headerMain}>
-                            {isAccount ? <Text>Счета</Text> : <Text>Категории</Text>}
+                            {isAccount ? <Text>{$t('Accounts')}</Text> : <Text>{$t('Catagories')}</Text>}
                         </View>
                     </View>
                     <View style={styles.settingsModalBody}>

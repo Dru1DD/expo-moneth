@@ -4,7 +4,7 @@ import { useStore } from '../../hooks'
 import { observer } from 'mobx-react-lite'
 import { Item } from '../Item/Item'
 import { analyticsComponentStyles as styles } from '../../styles/components/analyticsComponent.styles'
-
+import $t from '../../locales/i18n'
 
 export const ExspenseAnalytics = observer(() => {
     const { transactions, accounts } = useStore()
@@ -32,7 +32,7 @@ export const ExspenseAnalytics = observer(() => {
                     </ScrollView>
                 ) : (
                     <View style={{ padding: 10 }}>
-                        <Text>Упс... Нету транзакций.</Text>
+                        <Text>{$t('EmptyTransactionList')}</Text>
                     </View>
                 )
             }

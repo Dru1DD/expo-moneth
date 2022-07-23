@@ -7,6 +7,8 @@ import { observer } from 'mobx-react-lite'
 import { analyticsScreen as styles } from '../styles/analytics.styles'
 import SegmentedControl from '@react-native-segmented-control/segmented-control'
 
+import $t from '../locales/i18n'
+
 export const AnalyticsScreen = observer(() => {
     const [ activeSegment, setActiveSegment ] = useState(0)
     const { accounts } = useStore()
@@ -18,7 +20,7 @@ export const AnalyticsScreen = observer(() => {
             case 1:
                 return <ExspenseAnalytics />
             case 2:
-                alert('Произошла ошибка')
+                alert($t('Error'))
                 return null
         }
     }
@@ -26,17 +28,17 @@ export const AnalyticsScreen = observer(() => {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <Text style={styles.headerTitle}>Баланс</Text>
+                <Text style={styles.headerTitle}>{$t('Balance')}</Text>
                 <Text style={styles.headerSubTitle}>{accounts.sum} {accounts.activeCurrencySymbol}</Text>
             </View>
             <View style={styles.footer}>
                 <Chart />
                 <View>
-                    <Text style={{ fontSize: 16}}>Баланс показывает Ваш общий счёт. Это может помочь Вам понять, как Ваши активы растут и где Вы могли бы сэкономить</Text>
+                    <Text style={{ fontSize: 16}}>{$t('BalanceDiscription')}</Text>
                 </View>
                 <View style={{ width: '100%', marginTop: 10 }}>
                  <SegmentedControl 
-                    values={["Доходы", "Расходы"]}
+                    values={[$t('Income'), $t('Exspense')]}
                     selectedIndex={activeSegment}
                     onChange={(e) => setActiveSegment(e.nativeEvent.selectedSegmentIndex)}
                 />

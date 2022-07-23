@@ -15,7 +15,9 @@ export const SettingsItem = ({ title, onPress, isLine, isWeb, href }) => {
                             <Anchor href={href}>{title}</Anchor>
                         </View>
                         <View style={styles.priceContainer}>
-                            <Icon vectorIcon={'AntDesign'} iconName="right" size={18} color="black" />
+                            <Anchor href={href}>
+                                <Icon vectorIcon={'AntDesign'} iconName="right" size={18} color="black" />
+                            </Anchor>
                         </View>
                     </View>
                 </View>
@@ -32,7 +34,7 @@ export const SettingsItem = ({ title, onPress, isLine, isWeb, href }) => {
                         <Text>{title}</Text>
                     </View>
                     <View style={styles.priceContainer}>
-                        <Icon vectorIcon={'AntDesign'} iconName="right" size={18} color="black" />
+                            <Icon vectorIcon={'AntDesign'} iconName="right" size={18} color="black" />
                     </View>
                 </TouchableOpacity>
             </View>

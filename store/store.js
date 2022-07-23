@@ -2,6 +2,7 @@ import { createContext } from "react";
 import { TransactionStore } from "./transactions";
 import { AccountsStore } from "./accounts";
 import { CatagoryStore } from "./catagory";
+import { LanguageStore } from "./language";
 
 export class RootStore {
     transactions;
@@ -10,6 +11,7 @@ export class RootStore {
         this.transactions = new TransactionStore();
         this.accounts = new AccountsStore();
         this.catagories = new CatagoryStore();
+        this.language = new LanguageStore();
     }
 }
 
