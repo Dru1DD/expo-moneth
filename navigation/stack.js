@@ -9,7 +9,6 @@ import { TransactionForm } from "../screens/TransactionForm";
 
 import { SettingsScreen } from '../screens/SettingsScreen'
 import { SettingsGeneral } from '../screens/Settings/SettingsGeneral';
-import { About } from "../screens/Settings/About";
 
 const Stack = createStackNavigator();
 
@@ -62,14 +61,6 @@ export const SettingsStack = () => {
       <Stack.Screen 
         name="SettingsGeneral"
         component={SettingsGeneral}
-        options={{
-          title: '',
-          headerBackTitle: 'Back',
-        }}
-      />
-      <Stack.Screen 
-        name="About"
-        component={About}
         options={{
           title: '',
           headerBackTitle: 'Back',

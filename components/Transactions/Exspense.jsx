@@ -16,6 +16,7 @@ import { CatagoryModal } from '../Modals/CatagoryModal/CatagoryModal';
 import moment from 'moment'
 import { Icon } from '../Icon/Icon';
 
+import $t from '../../locales/i18n';
 
 export const Exspense = () => {
 
@@ -78,7 +79,7 @@ export const Exspense = () => {
         <View style={styles.container}>
             <ScrollView style={{ width: '100%' }}>
                 <View style={styles.blockContainer}>
-                    <Text style={styles.blockHeader}>Сумма</Text>
+                    <Text style={styles.blockHeader}>{$t('Sum')}</Text>
                     <View style={styles.itemContainer}>
                         <View style={styles.borderInput}>
                             <View style={styles.inputIcon}>
@@ -95,7 +96,7 @@ export const Exspense = () => {
                     </View>
                 </View>
                 <View style={styles.blockContainer}>
-                    <Text style={styles.blockHeader}>Откуда</Text>
+                    <Text style={styles.blockHeader}>{$t('From')}</Text>
                     <TouchableOpacity style={styles.itemContainer} onPress={() => setIsAccountOpen(!isAccountOpen)}>
                         <View style={styles.modalContainer}>
                             <View style={styles.modalIcon}>
@@ -112,7 +113,7 @@ export const Exspense = () => {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.blockContainer}>
-                    <Text style={styles.blockHeader}>Категория</Text>
+                    <Text style={styles.blockHeader}>{$t('Catagory')}</Text>
                     <TouchableOpacity style={styles.itemContainer} onPress={() => setIsCatagoryOpen(!isCatagoryOpen)}>
                         <View style={styles.modalContainer}>
                             <View style={styles.modalIcon}>
@@ -128,7 +129,7 @@ export const Exspense = () => {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.blockContainer}>
-                    <Text style={styles.blockHeader}>Заметка</Text>
+                    <Text style={styles.blockHeader}>{$t('Note')}</Text>
                     <View style={styles.itemContainer}>
                         <View style={styles.borderInput}>
                             <TextInput
@@ -148,7 +149,7 @@ export const Exspense = () => {
                             style={styles.button}
                             onPress={clickHandler}
                         >
-                            <Text style={styles.buttonText}>Подтвердить</Text>
+                            <Text style={styles.buttonText}>{$t('Confirm')}</Text>
                         </Pressable>
                     </View>
 

@@ -14,6 +14,7 @@ import { transactionStyles as styles } from '../../styles'
 import moment from 'moment'
 
 import { observer } from 'mobx-react-lite';
+import $t from '../../locales/i18n';
 
 export const Transfer = observer(() => {
     const [ isFirstOpen, setIsFirstOpen ] = useState(false)
@@ -77,7 +78,7 @@ export const Transfer = observer(() => {
         <View style={styles.container}>
             <ScrollView style={{ width: '100%' }}>
                 <View style={styles.blockContainer}>
-                    <Text style={styles.blockHeader}>Сумма</Text>
+                    <Text style={styles.blockHeader}>{$t('Sum')}</Text>
                     <View style={styles.itemContainer}>
                         <View style={styles.borderInput}>
                             <View style={styles.inputIcon}>
@@ -93,7 +94,7 @@ export const Transfer = observer(() => {
                     </View>
                 </View>
                 <View style={styles.blockContainer}>
-                    <Text style={styles.blockHeader}>Откуда</Text>
+                    <Text style={styles.blockHeader}>{$t('From')}</Text>
                     <TouchableOpacity style={styles.itemContainer} onPress={() => setIsFirstOpen(!isFirstOpen)}>
                         <View style={styles.modalContainer}>
                             <View style={styles.modalIcon}>
@@ -109,7 +110,7 @@ export const Transfer = observer(() => {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.blockContainer}>
-                    <Text style={styles.blockHeader}>Куда</Text>
+                    <Text style={styles.blockHeader}>{$t('Where')}</Text>
                     <TouchableOpacity style={styles.itemContainer} onPress={() => setIsSecondOpen(!isSecondOpen)}>
                         <View style={styles.modalContainer}>
                             <View style={styles.modalIcon}>
@@ -125,7 +126,7 @@ export const Transfer = observer(() => {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.blockContainer}>
-                    <Text style={styles.blockHeader}>Заметка</Text>
+                    <Text style={styles.blockHeader}>{$t('Note')}</Text>
                     <View style={styles.itemContainer}>
                         <View style={styles.borderInput}>
                             <TextInput 
@@ -145,7 +146,7 @@ export const Transfer = observer(() => {
                             style={styles.button}
                             onPress={clickHandler}
                         >
-                            <Text style={styles.buttonText}>Подтвердить</Text>
+                            <Text style={styles.buttonText}>{$t('Confirm')}</Text>
                         </TouchableOpacity>
                     </View>
 

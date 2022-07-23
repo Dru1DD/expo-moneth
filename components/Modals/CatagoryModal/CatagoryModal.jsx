@@ -7,6 +7,7 @@ import { modalStyles as styles } from "../../../styles";
 import shortid from "shortid";
 import { Icon } from "../../Icon/Icon";
 import { observer } from 'mobx-react-lite';
+import $t from "../../../locales/i18n";
 
 export const CatagoryModal = observer(({ isVisible, setIsVisible, isIncome }) => {
 
@@ -98,7 +99,7 @@ export const CatagoryModal = observer(({ isVisible, setIsVisible, isIncome }) =>
                             <Icon iconName="left" vectorIcon={"AntDesign"} color="black" />
                         </TouchableOpacity>
                         <View style={styles.headerMain}>
-                            <Text>Счета</Text>
+                            <Text>{$t('Accounts')}</Text>
                         </View>
                     </View>
                     <ScrollView style={styles.body}>

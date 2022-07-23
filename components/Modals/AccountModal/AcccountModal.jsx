@@ -6,6 +6,7 @@ import { AntDesign } from '@expo/vector-icons';
 import { useStore } from '../../../hooks';
 import shortid from 'shortid';
 import { Icon } from '../../Icon/Icon';
+import $t from '../../../locales/i18n'
 
 export const AccountModal = observer(({ isVisible, setIsVisible }) => {
     const { accounts } = useStore()
@@ -27,7 +28,7 @@ export const AccountModal = observer(({ isVisible, setIsVisible }) => {
                             <AntDesign name="left" size={18} color="black" />
                         </TouchableOpacity>
                         <View style={styles.headerMain}>
-                            <Text>Счета</Text>
+                            <Text>{$t('Accounts')}</Text>
                         </View>
                     </View>
                     <ScrollView style={styles.body}>

@@ -11,6 +11,8 @@ import { AntDesign } from '@expo/vector-icons';
 import { homeScreen as styles } from '../styles'
 import { observer } from 'mobx-react-lite'
 
+import $t from '../locales/i18n'
+
 export const HomeScreen = observer(() => {
     const navigation = useNavigation()
     const { transactions, accounts } = useStore()
@@ -45,7 +47,7 @@ export const HomeScreen = observer(() => {
             >
                 <View style={styles.buttonContainer}>
                     <AntDesign name="pluscircleo" size={24} color="black" />
-                    <Text style={styles.buttonText}>Доб. транзакцию</Text>
+                    <Text style={styles.buttonText}>{$t('AddTransaction')}</Text>
                 </View>
             </Pressable>
             <ScrollView

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { View } from 'react-native'
 import { Exspense, Income, Transfer } from '../components'
 import SegmentedControl from '@react-native-segmented-control/segmented-control';
+import $t from '../locales/i18n';
 
 import { transactionFormStyles as styles } from '../styles'
 
@@ -22,7 +23,7 @@ export const TransactionForm = () => {
         <View style={styles.container}>
             <View style={styles.header}>
                 <SegmentedControl 
-                    values={["Рассходы", "Доходы", "Перевод"]}
+                    values={[$t('Exspense'), $t('Income'), $t('Transfer')]}
                     selectedIndex={activeCatagory}
                     onChange={(event) => { setActiveCatagory(event.nativeEvent.selectedSegmentIndex) }}
                 />

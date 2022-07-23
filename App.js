@@ -6,12 +6,11 @@ import { StoreProvider, rootStore } from "./store/store";
 export default function App() {
   return (
     <StoreProvider value={rootStore}>
-        <SafeAreaProvider>
+      <SafeAreaProvider>
         <Navigation>
           <StatusBar />
         </Navigation>
       </SafeAreaProvider>
     </StoreProvider>
-    
   );
 }

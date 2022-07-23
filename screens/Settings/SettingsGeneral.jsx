@@ -7,6 +7,7 @@ import { currencyList } from '../../helpers/currencyList'
 import { Icon } from '../../components'
 import { observer } from 'mobx-react-lite'
 import { SettingsModal } from '../../components/Modals/SettingsModal/SettingsModal'
+import $t from '../../locales/i18n'
 
 export const SettingsGeneral = (props) => {
     const { pageName } = props.route.params
@@ -30,7 +31,7 @@ const CurrencyList = observer(() => {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <Text style={styles.headerText}>Денежная единица: {accounts.activeCurrencyName} {accounts.activeCurrencySymbol}</Text>
+                <Text style={styles.headerText}>{$t('MonetaryUnit')}: {accounts.activeCurrencyName} {accounts.activeCurrencySymbol}</Text>
             </View>
             <View style={styles.footer}>
                 <View style={{ flex: 5 }}>
@@ -81,7 +82,7 @@ const AccountsList = () => {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <Text style={styles.headerText}>Счета</Text>
+                <Text style={styles.headerText}>{$t('Accounts')}</Text>
             </View>
             <View style={styles.footer}>
                 <ScrollView style={styles.blockContainer}>
@@ -122,7 +123,7 @@ const AccountsList = () => {
                         onPress={buttonHandler}
                     >
                         <Icon iconName={"pluscircleo"} size={24} color={"black"} vectorIcon={"AntDesign"} />
-                        <Text style={{ marginLeft: 10 }}>Добавить категорию</Text>
+                        <Text style={{ marginLeft: 10 }}>{$t('AddAccount')}</Text>
                     </TouchableOpacity>
                 </ScrollView>
             </View>
@@ -146,7 +147,7 @@ const CatagoriesList = () => {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <Text style={styles.headerText}>Категории</Text>
+                <Text style={styles.headerText}>{$t('Catagories')}</Text>
             </View>
             <View style={styles.footer}>
                 <ScrollView style={styles.blockContainer}>
@@ -189,7 +190,7 @@ const CatagoriesList = () => {
                         onPress={buttonHandler}
                     >
                         <Icon iconName={"pluscircleo"} size={24} color={"black"} vectorIcon={"AntDesign"} />
-                        <Text style={{ marginLeft: 10 }}>Добавить категорию</Text>
+                        <Text style={{ marginLeft: 10 }}>{$t('AddCatagory')}</Text>
                     </TouchableOpacity>
                 </ScrollView>
             </View>
@@ -213,7 +214,7 @@ const IncomeCatagoriesList = () => {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <Text style={styles.headerText}>Категории</Text>
+                <Text style={styles.headerText}>{$t('Catagories')}</Text>
             </View>
             <View style={styles.footer}>
                 <ScrollView style={styles.blockContainer}>
@@ -256,7 +257,7 @@ const IncomeCatagoriesList = () => {
                         onPress={buttonHandler}
                     >
                         <Icon iconName={"pluscircleo"} size={24} color={"black"} vectorIcon={"AntDesign"} />
-                        <Text style={{ marginLeft: 10 }}>Добавить категорию</Text>
+                        <Text style={{ marginLeft: 10 }}>{$t('AddCatagory')}</Text>
                     </TouchableOpacity>
                 </ScrollView>
             </View>
